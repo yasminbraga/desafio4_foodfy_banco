@@ -126,7 +126,7 @@ footer {
     padding: 30px 0 20px;
 }
 
-/* INDEX PAGE - ADMIN */
+/* INDEX PAGE - ADMIN - RECIPE*/
 .chef,
 .recipe,
 .recipe-create-edit,
@@ -178,6 +178,7 @@ footer {
     border-radius: 8.75px;
     margin-right: 20px;
 }
+.chef-name,
 .recipe-title {
     font-size: 18px;
     color: #111111;
@@ -187,12 +188,32 @@ footer {
     font-size: 14px;
     color: #777777;
 }
-
+.chef-card a,
 .card a {
     font-weight: bold;
     font-size: 14px;
     color: #6558C3;
     text-decoration: none;
+}
+/* INDEX PAGE - ADMIN - CHEF */
+.chef-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.chef-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.chef-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.chef-name {
+    margin-bottom: 10px;
 }
 
 /* SHOW PAGE */
@@ -266,6 +287,7 @@ footer {
     width: 200px;
     height: 200px;
     border-radius: 50%;
+    object-fit: cover;
 }
 .chef-info h1 {
     font-size: 36px;
