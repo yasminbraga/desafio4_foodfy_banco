@@ -1,0 +1,102 @@
+  <div class="item">
+    <p>Imagem da receita</p>
+    <div>
+      <input type="url"
+      name="image"
+      placeholder="http://"
+      value="{{ recipe.image }}">
+    </div>
+  </div>
+  
+  <div class="item">
+    <p>Título da receita</p>
+    <div>
+      <input type="text"
+      name="title"
+      placeholder="Título da receita"
+      value="{{ recipe.title }}">
+    </div>
+  </div>
+{# 
+  <div class="item">
+    <p>Autor da receita</p>
+    <div>
+      <input 
+      type="text"
+      name="author"
+      placeholder="Autor da receita"
+      value="{{ recipe.author }}">
+    </div>
+  </div> #}
+
+  <div class="item">
+    <p>Ingredientes</p>
+    {% if (recipe) %}
+      {% for ingredient in recipe.ingredients %}
+        <div id="ingredients">
+          <div class="ingredient">
+            <input 
+            type="text"
+            name="ingredients[]"
+            value="{{ ingredient }}"
+            placeholder="Ingrediente">
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div id="ingredients">
+        <div class="ingredient">
+          <input 
+          type="text"
+          name="ingredients[]"
+          value=""
+          placeholder="Ingrediente">
+        </div>
+      </div>
+    {% endif %}
+    <button type="button" class="add-ingredient">Adicionar ingrediente</button>
+  </div>
+
+  <div class="item">
+    <p>Modo de Preparo</p>
+    {% if (recipe) %}
+      {% for step in recipe.preparation %}
+        <div id="preparations">
+          <div class="preparation">
+            <input 
+            type="text"
+            name="preparation[]"
+            value="{{ step }}"
+            placeholder="Modo de preparo">
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div id="preparations">
+        <div class="preparation">
+          <input 
+            type="text"
+            name="preparation[]"
+            value=""
+            placeholder="Modo de preparo">
+        </div>
+      </div>
+    {% endif %}
+    <button type="button" class="add-preparation">Adicionar preparo</button>
+  </div>
+
+  <div class="item">
+    <p>Informações adicionais</p>
+    {% if recipe %}
+      <textarea 
+        name="information" 
+        cols="30" 
+        rows="10"
+        placeholder="Informações adicionais">{{ recipe.information }}</textarea>
+    {% else %}
+      <textarea 
+        name="information" 
+        rows="10"
+        placeholder="Informações adicionais"></textarea>
+    {% endif %}
+  </div>
