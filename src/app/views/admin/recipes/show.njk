@@ -2,10 +2,11 @@
 
 {% block content %}
 <div class="recipe">
-  <div class="recipe-info-title">
+  <div class="recipe-head">
     <p>Receita: {{ recipe.title }}</p>
     <a href="/admin/recipes/{{ recipe.id }}/edit">Editar receita</a>
   </div>
+
   <div class="recipe-info-content">
     <img src="{{ recipe.image }}" alt="">
     <div class="recipe-content-title">
@@ -31,6 +32,7 @@
       <p>{{ recipe.information }}</p>
     </div>
   </div>
+  
 </div>
 
 {% endblock %}

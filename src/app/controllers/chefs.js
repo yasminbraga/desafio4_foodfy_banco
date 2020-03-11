@@ -12,7 +12,7 @@ module.exports = {
   show(req, res) {
     Chef.find(req.params.id, function(chef) {
       if (!chef) return res.send("Chefe não encontrado")
-      return res.render('admin/chef/show', {chef})
+      return res.render('admin/chefs/show', {chef})
     })
   },
   post(req, res) {
