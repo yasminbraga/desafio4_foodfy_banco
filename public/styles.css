@@ -198,6 +198,7 @@ footer {
 /* INDEX PAGE - ADMIN - CHEF */
 .chef-cards {
     display: grid;
+    grid-row-gap: 30px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .chef-card {
