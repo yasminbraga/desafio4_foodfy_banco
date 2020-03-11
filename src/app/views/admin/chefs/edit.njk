@@ -1,0 +1,26 @@
+{% extends '../layout.njk' %}
+
+{% block content %}
+<div class="recipe-create-edit">
+  <div class="recipe-create-edit-title">
+    <p>Editar chef</p>
+    <div class="info-buttons">
+      <button class="delete-button" type="submit" form="form-delete">Deletar</button>
+      <button class="save-button" type="submit" form="form-edit">Salvar chef</button>
+    </div>
+  </div>
+  <form method="POST" action="/admin/chefs?_method=PUT" id="form-edit">
+    {% include "admin/chefs/fields.njk" %}
+    <input 
+      type="hidden"
+      name="id"
+      value={{chef.id}}>
+  </form>
+  <form method="POST" action="/admin/chefs?_method=DELETE" id="form-delete">
+    <input 
+      type="hidden"
+      name="id"
+      value={{chef.id}}>
+  </form>
+</div>
+{% endblock %}
