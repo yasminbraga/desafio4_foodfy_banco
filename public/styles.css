@@ -39,6 +39,9 @@ header.site-navigation {
     margin-right: 30px;
     color: #111111;
 }
+.site-links a.active {
+    font-weight: bold;
+}
 
 /* INDEX PAGE - SITE */
 .description-container {
