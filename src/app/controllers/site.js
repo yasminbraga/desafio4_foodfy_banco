@@ -23,7 +23,7 @@ module.exports = {
     })
   },
   showAllChefs(req, res) {
-    Chef.index(function(chefs) {
+    Chef.all(function(chefs) {
       return res.render('site/chefs', {chefs})
     })
   }

@@ -3,7 +3,9 @@ const date = require("../../lib/utils")
 
 module.exports = {
   index(callback) {
-    const query = `SELECT * FROM recipes`
+    const query = `
+    SELECT * FROM recipes 
+    `
 
     db.query(query, function(err, results) {
       if (err) throw `Database Error! ${err}`

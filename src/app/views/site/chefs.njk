@@ -8,7 +8,7 @@
               <img src="{{ chef.avatar_url }}" alt="Imagem de {{ chef.name }}">
               <div>
                 <p class="chef-name-site">{{ chef.name }}</p>
-                <p class="chef-number-recipes">4 receitas</p>
+                <p class="chef-number-recipes">{{chef.total_recipes}} receitas</p>
               </div>
           </div>
         {% endfor %}
