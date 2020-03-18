@@ -44,9 +44,18 @@ module.exports = {
     })
   },
   delete(req, res) {
-    Chef.delete(req.body.id, function() {
-      return res.redirect("/admin/chefs")
+
+    Chef.findChefRecipes(req.body.id, function(recipes) {
+      if (recipes) {
+        res.send("Não pode apagar chef que possui receita cadastrada")
+      } else {
+        Chef.delete(req.body.id, function() {
+          return res.redirect("/admin/chefs")
+        })
+      }
     })
+
+
   }
   
 
