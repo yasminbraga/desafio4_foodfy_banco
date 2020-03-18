@@ -27,7 +27,9 @@ header.navigation {
     margin: 0 auto;
 }
 header.site-navigation {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
     padding: 28px 0;
 }
 .site-logo {
@@ -41,6 +43,25 @@ header.site-navigation {
 }
 .site-links a.active {
     font-weight: bold;
+}
+.site-filter button {
+    background-color: #6558C3;
+    color: white;
+    width: 91px;
+    height: 37px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.site-filter input {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
+.site-filter form {
+    display: grid;
+    grid-template-columns: 246px 1fr;
+    grid-column-gap: 8px;
 }
 
 /* INDEX PAGE - SITE */
@@ -74,12 +95,14 @@ header.site-navigation {
 .site-cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px 20px;
 }
 .site-card img {
     width: 300px;
     height: 140px;
     border-radius: 15px;
     margin-bottom: 20px;
+    object-fit: cover;
 }
 .site-content .site-content-title {
     font-size: 18px;
@@ -236,6 +259,7 @@ footer {
     justify-content: space-between;
     padding-bottom: 26px;
 }
+
 .chef-head p,
 .recipe-head p {
     display: flex;
@@ -255,7 +279,7 @@ footer {
 }
 .recipe-info-content img {
     width: 100%;
-    height: 431px;
+    height: 280px;
     border-radius: 15px;
     object-fit: cover;
 }
@@ -302,6 +326,9 @@ footer {
     border-radius: 50%;
     object-fit: cover;
 }
+.chef-info {
+    padding-bottom: 50px;
+}
 .chef-info h1 {
     font-size: 36px;
     font-weight: bold;
@@ -310,6 +337,11 @@ footer {
 .chef-info p {
     font-size: 20px;
     color: #777777;
+}
+.chef-recipes h2 {
+    font-weight: bold;
+    font-size: 24px;
+    padding-bottom: 30px;
 }
 
 /* FIELDS */
@@ -322,6 +354,7 @@ footer {
     font-weight: bold;
     padding: 30px 0 10px;
 }
+.item select,
 .item textarea,
 .item-avatar input,
 .item input {
@@ -331,6 +364,7 @@ footer {
     outline: none;
     font-size: 16px;
 }
+.item select,
 .item-avatar input,
 .item input {
     height: 49px;
@@ -338,6 +372,9 @@ footer {
 }
 .item textarea {
     padding: 18px 0 0 20px;
+}
+.item select {
+    background-color: white;
 }
 .item:last-child input {
     height: 257px;
@@ -354,7 +391,7 @@ footer {
     padding-top: 15px;
     outline: none;
 }
-
+.item select::placeholder,
 .item input::placeholder {
     color: #777777;
 }

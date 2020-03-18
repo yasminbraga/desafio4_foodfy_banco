@@ -17,23 +17,25 @@
       value="{{ recipe.title }}">
     </div>
   </div>
-{# 
+
   <div class="item">
-    <p>Autor da receita</p>
+    <p>Chef</p>
     <div>
-      <input 
-      type="text"
-      name="author"
-      placeholder="Autor da receita"
-      value="{{ recipe.author }}">
+      <select name="chef">
+      {% for chef in chefOptions %}
+        <option value="{{ chef.id }}"{% if recipe.chef_id == chef.id %} selected {% endif %}>
+          {{ chef.name }}
+        </option>
+      {% endfor %}
+      </select>
     </div>
-  </div> #}
+  </div>
 
   <div class="item">
     <p>Ingredientes</p>
     {% if (recipe) %}
-      {% for ingredient in recipe.ingredients %}
         <div id="ingredients">
+      {% for ingredient in recipe.ingredients %}
           <div class="ingredient">
             <input 
             type="text"
@@ -41,8 +43,8 @@
             value="{{ ingredient }}"
             placeholder="Ingrediente">
           </div>
-        </div>
       {% endfor %}
+        </div>
     {% else %}
       <div id="ingredients">
         <div class="ingredient">
@@ -60,8 +62,8 @@
   <div class="item">
     <p>Modo de Preparo</p>
     {% if (recipe) %}
-      {% for step in recipe.preparation %}
-        <div id="preparations">
+      <div id="preparations">
+        {% for step in recipe.preparation %}
           <div class="preparation">
             <input 
             type="text"
@@ -69,8 +71,8 @@
             value="{{ step }}"
             placeholder="Modo de preparo">
           </div>
-        </div>
-      {% endfor %}
+        {% endfor %}
+      </div>
     {% else %}
       <div id="preparations">
         <div class="preparation">

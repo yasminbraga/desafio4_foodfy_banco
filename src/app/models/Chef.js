@@ -55,15 +55,18 @@ module.exports = {
       if (err) throw `Database Error! ${err}`
       callback(results.rows[0])
     })
+  },
 
-
-    // db.query(`
-    // SELECT *
-    // FROM chefs
-    // WHERE id = $1`, [id], function(err, results) {
-    //   if (err) throw `Database Error! ${err}`
-    //   callback(results.rows[0])
-    // })
+  findChefRecipes(chefId, callback) {
+    query = `
+    SELECT *
+    FROM recipes
+    WHERE recipes.chef_id = $1
+    `
+    db.query(query, [chefId], function(err, results) {
+      if (err) throw `Database Error! ${err}`
+      callback(results.rows)
+    })
   },
   update(data, callback) {
     const query = `

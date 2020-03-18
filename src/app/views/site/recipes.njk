@@ -1,19 +1,18 @@
 {% extends "./layout.njk" %}
 
 {% block content %}
-    <section class="cards">
-        {% for recipe in recipes %}
-    
-        <div class="card" id={{recipes.indexOf(recipe)}}>
-            <div class="card-image-container">
+    <section class="site-cards">
+    {% for recipe in recipes %}
+        <div class="site-card" id={{recipes.indexOf(recipe)}}>
+            <div class="site-card-image-container">
                 <img src="{{ recipe.image }}" alt="Imagem de {{ recipe.image }}">
             </div>
-            <div class="content">
-                <p class="content-title">{{ recipe.title }}</p>
-                <p class="content-author">{{ recipe.author }}</p>
+            <div class="site-content">
+                <p class="site-content-title">{{recipe.title}}</p>
+                <p class="site-content-author">por {{recipe.chef_name}}</p>
             </div>
         </div>
-        {% endfor %}
+    {% endfor %}
     </section>
 
 {% endblock %}

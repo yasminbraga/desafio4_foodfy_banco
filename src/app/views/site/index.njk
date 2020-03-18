@@ -1,6 +1,16 @@
 {% extends './layout.njk' %}
 
 {% block content %}
+{# <div class="site-filter">
+    <form action="/recipes" method="GET">
+        <input 
+            type="text"
+            name="filter"
+            placeholder="Filtrar por nome"
+            >
+            <button type="submit">Filtrar</button>
+    </form>
+</div> #}
     <div class="description-container">
         <div class="description">
             <h1>As melhores receitas</h1>
@@ -22,7 +32,7 @@
             </div>
             <div class="site-content">
                 <p class="site-content-title">{{recipe.title}}</p>
-                <p class="site-content-author">{{recipe.author}}</p>
+                <p class="site-content-author">por {{recipe.chef_name}}</p>
             </div>
         </div>
     {% endfor %}

@@ -3,15 +3,17 @@ const Recipe = require("../models/Recipe")
 module.exports = {
   index(req, res) {
     Recipe.index(function(recipes) {
-    return res.render('admin/recipes/index', { recipes })
+      return res.render('admin/recipes/index', { recipes })
   })
   },
   create(req, res) {
-    return res.render("admin/recipes/create")
+    Recipe.chefsSelectOptions(function(options) {
+      return res.render("admin/recipes/create", {chefOptions: options})
+    })
   },
   show(req, res) {
     Recipe.find(req.params.id, function(recipe) {
-      if (!recipe) return res.send("Receita não encontrada")
+      if (!recipe) return res.send("Receita não encontrada") 
       return res.render('admin/recipes/show', {recipe})
     })
   },
@@ -29,7 +31,9 @@ module.exports = {
   edit(req, res) {
     Recipe.find(req.params.id, function(recipe) {
       if (!recipe) return res.send("Receita não encontrada")
-      return res.render('admin/recipes/edit', {recipe})
+      Recipe.chefsSelectOptions(function(options) {
+        return res.render("admin/recipes/edit", {recipe, chefOptions: options})
+      })
     })
   },
   put(req, res) {
