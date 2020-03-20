@@ -1,6 +1,7 @@
 {% extends "./layout.njk" %}
 
 {% block content %}
+<div class="site-recipes-content">
     <section class="site-cards">
     {% for recipe in recipes %}
         <div class="site-card" id={{recipes.indexOf(recipe)}}>
@@ -14,5 +15,11 @@
         </div>
     {% endfor %}
     </section>
+    <div class="pagination"
+        data-page={{pagination.page}}
+        data-total={{pagination.total}}
+        data-filter={{filter}}
+    ></div>
 
+</div>
 {% endblock %}

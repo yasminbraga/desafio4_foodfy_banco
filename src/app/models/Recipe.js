@@ -60,7 +60,6 @@ module.exports = {
     LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
     WHERE recipes.title ILIKE '%${filter}%'
     `
-
     db.query(query, function(err, results) {
       if (err) throw `Database Error! ${err}`
       callback(results.rows)
@@ -116,19 +115,26 @@ module.exports = {
 
     if (filter) {
       filterQuery = `
-      WHERE  recipes.title ILIKE '%${filter}%'
+      WHERE recipes.title ILIKE '%${filter}%'
       `
 
       totalQuery = `(
         SELECT count(*) FROM recipes
         ${filterQuery}
-      ) AS toal`
+      ) AS total`
     }
 
     query = `
-    SELECT recipes.*, ${totalQuery}, count
+    SELECT recipes.*, ${totalQuery}, chefs.name AS chef_name
+    FROM recipes
+    LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+    ${filterQuery}
+    LIMIT $1 OFFSET $2 
     `
-
+    db.query(query, [limit, offset], function(err, results) {
+      if (err) throw 'Database Error'
+      callback(results.rows)
+    })
 
   }
 

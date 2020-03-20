@@ -429,3 +429,24 @@ footer {
      
 }
 
+/* PAGINATION */
+.site-recipes-content {
+    display: grid;
+    grid-row-gap: 10px;
+}
+.pagination {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination a,
+.pagination span {
+    color: black;
+    text-decoration: none;
+    margin-right: 16px;
+}
+.pagination a:hover {
+    color: #777777;
+    border-bottom: 1px solid #FBDFDB;
+}
